@@ -10,6 +10,7 @@ To write a program for Frequency Modulation and Demodulation using SCILAB and to
 EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
+
 •	SCI LAB
 
 THEORY:
@@ -52,10 +53,15 @@ PROCEDURE
 
 
 •	Refer Algorithms and write code for the experiment.
+
 •	Open SCILAB in System
+
 •	Type your code in New Editor
+
 •	Save the file
+
 •	Execute the code
+
 •	If any Error, correct it in code and execute again
 Verify the generated waveform using Tabulation and Model Waveform
 
@@ -65,25 +71,48 @@ MODEL GRAPH:
 
 
 Program
+~~~
+// Parameters
+Am = 9.2;        // Message amplitude
+Fm = 310;         // Message frequency (Hz)
+B  = 6.3;         // Modulation index
+Ac = 18.4;          // Carrier amplitude
+Fc = 3100;        // Carrier frequency (Hz)
+Fs = 31000;       // Sampling frequency
+T  = 0:1/Fs:2/Fm; // Time vector (two cycles of message)
+
+// Message signal
+em = Am * cos(2*%pi*Fm*T);
+subplot(3,1,1);
+plot(T, em);
+xtitle("Message Signal");
+xgrid();
+// Carrier signal
+ec = Ac * cos(2*%pi*Fc*T);
+subplot(3,1,2);
+plot(T, ec);
+xtitle("Carrier Signal");
+xgrid();
+// FM signal
+efm = Ac * cos( (2*%pi*Fc*T) + (B * sin(2*%pi*Fm*T)) );
+subplot(3,1,3);
+plot(T, efm);
+xtitle("FM Signal");
+xgrid();
+~~~
 
 
 Output Waveform
+<img width="1920" height="1200" alt="Screenshot (21)" src="https://github.com/user-attachments/assets/d0a7824b-5189-4792-aa20-b84d83c6371b" />
 
 
 
 Tabulation
 
+![WhatsApp Image 2025-12-03 at 15 04 42_cc56c992](https://github.com/user-attachments/assets/355121fe-0710-4899-af45-7723eef73d18)
 
 
-Calculation
-
-
-
-Frequency Deviation Practical = 
-
-Modulation Index Practical	= 
-
-Modulation Index Theoretical	=
+![WhatsApp Image 2025-12-03 at 15 05 01_1bb41cd4](https://github.com/user-attachments/assets/fe47a827-5028-46b4-9904-a92807a6006c)
 
 
 
